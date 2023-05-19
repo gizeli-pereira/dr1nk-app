@@ -10,8 +10,13 @@ const drinkSchema = new Schema({
         type: String,
         required: true
     },
-    preparation: {
-        type: String
+    instructions: {
+        type: String,
+        required: true
+    },
+    imageUrl: {
+        type: String,
+        required: true
     },
     // Come back an change to Google Maps API
     location: {
@@ -20,10 +25,10 @@ const drinkSchema = new Schema({
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: User
+        ref: 'User'
     }
 }, {
     timestamps: true
 });
 
-module.exports = mongoose.model('Drink', Schema);
+module.exports = mongoose.model('Drink', drinkSchema);
