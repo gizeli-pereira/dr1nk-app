@@ -10,18 +10,17 @@ module.exports = {
 
 async function getAllDrinks(req, res) {
     try {
-      const result = await Drink.find({});
-      res.status(200).json(result);
-      console.log('drinks', result)
-    } catch (err) {
-      res.status(500).json(err);
-    }
+        const drinks = await Drink.find().populate('user');
+        res.json(drinks);
+      } catch (error) {
+        res.status(500).json({ error: 'Failed to retrieve drinks' });
+      }
   };
 
-  async function createDrink(req, res) {
+async function createDrink(req, res) {
     try {
       const { name, ingredients, instructions, imageUrl, location } = req.body;
-      const userId = req.user.id; // Assuming user authentication is implemented and user ID is available in the request
+      const userId = req.user.id;
   
       // Create a new drink instance
       const newDrink = new Drink({
@@ -48,14 +47,14 @@ async function getAllDrinks(req, res) {
       const drinkId = req.params.id;
   
       // Find the drink by ID
-      const drink = await Drink.findById(drinkId);
+      const drink = await Drink.findByIdAndDelete(drinkId);
   
       if (!drink) {
         return res.status(404).json({ error: 'Drink not found' });
       }
   
       // Delete the drink
-      await drink.remove();
+    //   await drink.remove();
   
       res.json({ message: 'Drink deleted successfully' });
     } catch (error) {
@@ -71,7 +70,7 @@ async function updateDrink(req, res) {
       const drinkId = req.params.id;
   
       // Find the drink by ID
-      const drink = await Drink.findById(drinkId);
+      const drink = await Drink.findByIdAndUpdate(drinkId, {content: req.body.content}, {new: true});
   
       if (!drink) {
         return res.status(404).json({ error: 'Drink not found' });

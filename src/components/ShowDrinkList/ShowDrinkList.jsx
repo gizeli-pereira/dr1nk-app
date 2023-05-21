@@ -1,4 +1,6 @@
 import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, Image, Heading, Button, ButtonGroup, Divider } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
+import UpdateDrink from '../UpdateDrink/UpdateDrink'
 
 export default function ShowDrinkList({ drinks, userID, handleDelete, handleUpdate }) {
     return (
@@ -38,11 +40,9 @@ export default function ShowDrinkList({ drinks, userID, handleDelete, handleUpda
                                 
                                 <CardFooter>
                                     <ButtonGroup spacing='2'>
-                                        <Button variant='solid' colorScheme='blue'
-                                        onClick={handleUpdate}
-                                        >
-                                            Edit
-                                        </Button>
+                                       <Link brink={drink} brinkId={drink.id} to="/drinks/:id">Edit</Link>
+                                    
+                                        {/* <UpdateDrink drinks={drinks} handleUpdate={handleUpdate}/> */}
                                         <Button variant='ghost' colorScheme='blue'
                                         onClick={handleDelete}
                                         >

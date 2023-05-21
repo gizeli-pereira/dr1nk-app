@@ -2,12 +2,13 @@ import ShowDrinkList from '../../components/ShowDrinkList/ShowDrinkList';
 import { useState, useEffect } from 'react';
 import { useGetUserID } from '../../hooks/useGetUserID';
 import * as drinksAPI from '../../utilities/drinks-api';
+import ShowListTest from '../../components/ShowDrinkList/ShowListTest';
+import UpdateDrink from '../../components/UpdateDrink/UpdateDrink';
 
 
 
-export default function DrinkListPage() {
+export default function DrinkListPage({ user }) {
   const [drinks, setDrinks] = useState([]);
-  const [savedDrinks, setSavedDrinks] = useState([]);
 
   const userID = useGetUserID();
 
@@ -33,6 +34,29 @@ export default function DrinkListPage() {
     }
   };
 
+  // const handleDelete = async (drinkId) => {
+  //   try {
+  //     const response = await fetch(`${drinksAPI}/${drinkId}`, {
+  //       method: 'DELETE',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //     })
+  //     console.log(drinkId)
+  //     if (response.ok) {
+  //       // Display a success message or perform any additional actions
+  //       console.log('Drink deleted successfully.');
+  //       // You might also consider updating the drink list after deletion
+  //     } else {
+  //       // Display an error message if the deletion failed
+  //       console.log('Failed to delete the drink.');
+  //     }
+  //   } catch (error) {
+  //     // Handle any errors that occur during the deletion process
+  //     console.log('An error occurred while deleting the drink:', error);
+  //   }
+  // };
+
   const handleUpdate = async (drinkId, updatedDrink) => {
     try {
       await drinksAPI.updateDrink(drinkId, updatedDrink);
@@ -41,6 +65,7 @@ export default function DrinkListPage() {
           drink._id === drinkId ? { ...drink, ...updatedDrink } : drink
         )
       );
+      console.log(drinkId)
     } catch (error) {
       console.error(error);
     }
@@ -48,9 +73,18 @@ export default function DrinkListPage() {
 
   return (
     <>
-    <ShowDrinkList drinks={drinks} userID={userID} handleDelete={handleDelete}
+    {drinks.map((drink, i) => {
+      return (
+        <ShowListTest user={user} setDrinks={setDrinks} drink={drink} handleUpdate={handleUpdate} handleDelete={handleDelete} key={i}/>
+        
+      )
+    })}
+
+
+
+    {/* <ShowDrinkList drinks={drinks} userID={userID} handleDelete={handleDelete}
         handleUpdate={handleUpdate}
-/>
+/> */}
     </>
   );
 }
