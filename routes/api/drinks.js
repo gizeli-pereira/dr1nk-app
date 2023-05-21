@@ -3,7 +3,9 @@ const router = express.Router();
 const drinksCtrl = require('../../controllers/api/drinks');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-// router.get('/', drinksCtrl.index);
+router.get('/', drinksCtrl.getAllDrinks);
+
+router.post('/', ensureLoggedIn, drinksCtrl.create);
 
 // router.get('/new', ensureLoggedIn, drinksCtrl.new);
 
@@ -11,7 +13,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // router.put('/:id', ensureLoggedIn, drinksCtrl.update);
 
-// router.post('/', ensureLoggedIn, drinksCtrl.create);
 
 // router.get('/:id/edit', ensureLoggedIn, drinksCtrl.edit);
 

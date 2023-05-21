@@ -16,12 +16,10 @@ const drinkSchema = new Schema({
     },
     imageUrl: {
         type: String,
-        required: true
     },
     // Come back an change to Google Maps API
     location: {
         type: String,
-        required: true
     },
     user: {
         type: Schema.Types.ObjectId,
