@@ -3,7 +3,8 @@ const User = require('../../models/user');
 
 module.exports = {
     getAllDrinks,
-    create
+    createDrink,
+    deleteDrink
 };
 
 async function getAllDrinks(req, res) {
@@ -16,30 +17,48 @@ async function getAllDrinks(req, res) {
     }
   };
 
-async function create(req, res){
-    const drink = new Drink({
-      _id: new mongoose.Types.ObjectId(),
-      name: req.body.name,
-      image: req.body.image,
-      ingredients: req.body.ingredients,
-      instructions: req.body.instructions,
-      imageUrl: req.body.imageUrl,
-      user: req.body.user,
-    });
-    console.log(drink);
-  
+  async function createDrink(req, res) {
     try {
-      const result = await drink.save();
-      res.status(201).json({
-        createdDrink: {
-          name: result.name,
-          image: result.image,
-          ingredients: result.ingredients,
-          instructions: result.instructions,
-          _id: result._id,
-        },
+      const { name, ingredients, instructions, imageUrl, location } = req.body;
+      const userId = req.user.id; // Assuming user authentication is implemented and user ID is available in the request
+  
+      // Create a new drink instance
+      const newDrink = new Drink({
+        name,
+        ingredients,
+        instructions,
+        imageUrl,
+        location,
+        user: userId
       });
-    } catch (err) {
-      res.status(500).json(err);
+  
+      // Save the drink to the database
+      const savedDrink = await newDrink.save();
+  
+      res.status(201).json(savedDrink);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Failed to create drink' });
     }
-};
+  };
+
+ async function deleteDrink(req, res) {
+    try {
+      const drinkId = req.params.id;
+  
+      // Find the drink by ID
+      const drink = await Drink.findById(drinkId);
+  
+      if (!drink) {
+        return res.status(404).json({ error: 'Drink not found' });
+      }
+  
+      // Delete the drink
+      await drink.remove();
+  
+      res.json({ message: 'Drink deleted successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Failed to delete drink' });
+    }
+  };

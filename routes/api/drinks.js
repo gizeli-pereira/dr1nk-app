@@ -5,11 +5,11 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 router.get('/', drinksCtrl.getAllDrinks);
 
-router.post('/', ensureLoggedIn, drinksCtrl.create);
+router.post('/', ensureLoggedIn, drinksCtrl.createDrink);
 
 // router.get('/new', ensureLoggedIn, drinksCtrl.new);
 
-// router.delete('/:id', ensureLoggedIn, drinksCtrl.delete);
+router.delete('/:id', ensureLoggedIn, drinksCtrl.deleteDrink);
 
 // router.put('/:id', ensureLoggedIn, drinksCtrl.update);
 
