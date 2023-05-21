@@ -11,7 +11,7 @@ router.post('/', ensureLoggedIn, drinksCtrl.createDrink);
 
 router.delete('/:id', ensureLoggedIn, drinksCtrl.deleteDrink);
 
-// router.put('/:id', ensureLoggedIn, drinksCtrl.update);
+router.put('/:id', ensureLoggedIn, drinksCtrl.updateDrink);
 
 
 // router.get('/:id/edit', ensureLoggedIn, drinksCtrl.edit);

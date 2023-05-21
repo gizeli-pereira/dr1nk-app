@@ -1,6 +1,4 @@
-import { checkToken }from '../../utilities/users-service';
 import ShowDrinkList from '../../components/ShowDrinkList/ShowDrinkList';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useGetUserID } from '../../hooks/useGetUserID';
 import * as drinksAPI from '../../utilities/drinks-api';
@@ -14,23 +12,45 @@ export default function DrinkListPage() {
   const userID = useGetUserID();
 
 
-  useEffect(function() {
-    async function getDrinks() {
-      const data = await drinksAPI.getDrinks();
-      setDrinks(data);
+  useEffect(() => {
+    async function fetchDrinks() {
+      try {
+        const data = await drinksAPI.getDrinks();
+        setDrinks(data);
+      } catch (error) {
+        console.error(error);
+      }
     }
-    getDrinks();
+    fetchDrinks();
   }, []);
 
-  // async function handleCheckToken() {
-  //   const expDate = await checkToken();
-  //   console.log(expDate);
-  // }
+  const handleDelete = async (drinkId) => {
+    try {
+      await drinksAPI.deleteDrink(drinkId);
+      setDrinks(drinks.filter((drink) => drink._id !== drinkId));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleUpdate = async (drinkId, updatedDrink) => {
+    try {
+      await drinksAPI.updateDrink(drinkId, updatedDrink);
+      setDrinks((prevDrinks) =>
+        prevDrinks.map((drink) =>
+          drink._id === drinkId ? { ...drink, ...updatedDrink } : drink
+        )
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
-    <ShowDrinkList drinks={drinks} userID={userID} />
-    {/* <button onClick={handleCheckToken}>Check When My Login Expires</button> */}
+    <ShowDrinkList drinks={drinks} userID={userID} onDelete={handleDelete}
+        onUpdate={handleUpdate}
+/>
     </>
   );
 }

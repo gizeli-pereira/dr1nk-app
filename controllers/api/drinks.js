@@ -4,7 +4,8 @@ const User = require('../../models/user');
 module.exports = {
     getAllDrinks,
     createDrink,
-    deleteDrink
+    deleteDrink,
+    updateDrink
 };
 
 async function getAllDrinks(req, res) {
@@ -60,5 +61,35 @@ async function getAllDrinks(req, res) {
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Failed to delete drink' });
+    }
+  };
+
+  // Controller function to update a drink
+async function updateDrink(req, res) {
+    try {
+      const { name, ingredients, instructions, imageUrl, location } = req.body;
+      const drinkId = req.params.id;
+  
+      // Find the drink by ID
+      const drink = await Drink.findById(drinkId);
+  
+      if (!drink) {
+        return res.status(404).json({ error: 'Drink not found' });
+      }
+  
+      // Update the drink properties
+      drink.name = name;
+      drink.ingredients = ingredients;
+      drink.instructions = instructions;
+      drink.imageUrl = imageUrl;
+      drink.location = location;
+  
+      // Save the updated drink to the database
+      const updatedDrink = await drink.save();
+  
+      res.json(updatedDrink);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Failed to update drink' });
     }
   };
