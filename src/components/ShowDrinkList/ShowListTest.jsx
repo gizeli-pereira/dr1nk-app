@@ -13,7 +13,7 @@ export default function ShowListTest({ user, setDrinks, drink, drinks, userID, h
 
     return (
         <div w={'80vw'}>
-            { showEdit ? <UpdateDrink drinkOne={drink} /> : null }
+            {/* { showEdit ? <UpdateDrink drinkOne={drink} /> : null } */}
 
             {showList ? 
             <Card
@@ -50,7 +50,7 @@ export default function ShowListTest({ user, setDrinks, drink, drinks, userID, h
                         <ButtonGroup spacing='2'>
                             {/* <Link  to="/drinks/:id">Edit</Link> */}
                             <Button onClick={() => setShowEdit(!showEdit)}  >Edit</Button>
-                            {/* <UpdateDrink drinks={drinks} handleUpdate={handleUpdate}/> */}
+                            <UpdateDrink drinks={drinks} drinkOne={drink} setDrinks={setDrinks} handleUpdate={handleUpdate}/>
                             <Button variant='ghost' colorScheme='blue'
                                 
                             >

@@ -1,3 +1,7 @@
+import { getUser } from "../utilities/users-service"
+
 export function useGetUserID() {
-    return window.localStorage.getItem("userID");
+    const user = getUser();
+    console.log('user', user);
+    return {userId: user._id}
 }

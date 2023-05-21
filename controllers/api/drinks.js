@@ -53,9 +53,6 @@ async function createDrink(req, res) {
         return res.status(404).json({ error: 'Drink not found' });
       }
   
-      // Delete the drink
-    //   await drink.remove();
-  
       res.json({ message: 'Drink deleted successfully' });
     } catch (error) {
       console.error(error);
@@ -65,28 +62,36 @@ async function createDrink(req, res) {
 
   // Controller function to update a drink
 async function updateDrink(req, res) {
+    console.log("req", req.body)
     try {
-      const { name, ingredients, instructions, imageUrl, location } = req.body;
-      const drinkId = req.params.id;
-  
-      // Find the drink by ID
-      const drink = await Drink.findByIdAndUpdate(drinkId, {content: req.body.content}, {new: true});
-  
+        
+      const { name, ingredients, instructions, imageUrl, location, _id } = req.body;
+      const drinkId = _id;
+        console.log("drinkId", drinkId); //
+      // Find the drink by ID"
+      const drink = await Drink.findByIdAndUpdate(drinkId, {
+        name, 
+        ingredients,
+        instructions,
+        imageUrl,
+        location,
+      }, {new: true});
+      console.log('drink', drink)
       if (!drink) {
         return res.status(404).json({ error: 'Drink not found' });
       }
   
       // Update the drink properties
-      drink.name = name;
-      drink.ingredients = ingredients;
-      drink.instructions = instructions;
-      drink.imageUrl = imageUrl;
-      drink.location = location;
+      // drink.name = name;
+      // drink.ingredients = ingredients;
+      // drink.instructions = instructions;
+      // drink.imageUrl = imageUrl;
+      // drink.location = location;
   
-      // Save the updated drink to the database
-      const updatedDrink = await drink.save();
+      // // Save the updated drink to the database
+      // const updatedDrink = await drink.save();
   
-      res.json(updatedDrink);
+      res.json(drink);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Failed to update drink' });

@@ -4,13 +4,15 @@ import { getDrink, updateDrink } from "../../utilities/drinks-api";
 import * as drinksAPI from '../../utilities/drinks-api';
 import { Button } from "@chakra-ui/react";
 import { confirmAlert } from "react-confirm-alert";
+import { useGetUserID } from "../../hooks/useGetUserID";
 
 
-export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete }) {
+export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete, handleUpdate }) {
+  const { userId } = useGetUserID();
   const { drinkId } = useParams();
   const navigate = useNavigate();
 
-
+  console.log(userId)
 
 //   const [drink, setDrink] = useState({
 //     name: '',
@@ -24,7 +26,7 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete 
 
     
 
-    console.log(drink)
+    console.log(drinkOne)
     // console.log(testone)
 
 
@@ -58,19 +60,19 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete 
     }
   };
 
-  const handleUpdate = async (drinkId, updatedDrink) => {
-    try {
-      await drinksAPI.updateDrink(drinkId, updatedDrink);
-      setDrinks((prevDrinks) =>
-        prevDrinks.map((drink) =>
-          drink._id === drinkId ? { ...drink, ...updatedDrink } : drink
-        )
-      );
-      console.log(drinkId)
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleUpdate = async (drinkId) => {
+  //   try {
+  //     await drinksAPI.updateDrink(drinkId, {...drink, user: userId});
+  //     setDrinks((prevDrinks) =>
+  //       prevDrinks.map((drink) =>
+  //         drink._id === drinkId ? { ...drink } : drink
+  //       )
+  //     );
+  //     console.log(drinkId)
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
 //   const handleDelete = async (drinkId) => {
 //     console.log('delete drinkId', drinkId)
@@ -112,7 +114,12 @@ const handleDeleteTwo = async (drinkId) => {
     <div className="update-drink">
       <h2>Update Drink</h2>
       <p>{drink._id}</p>
-      <form onSubmit={handleUpdate}>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        handleUpdate(drinkId, {...drink, user: userId});
+        }}
+        >
         <label htmlFor="name">Name</label>
         <input
           type="text"
