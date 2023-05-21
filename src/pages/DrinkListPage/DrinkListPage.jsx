@@ -48,8 +48,8 @@ export default function DrinkListPage() {
 
   return (
     <>
-    <ShowDrinkList drinks={drinks} userID={userID} onDelete={handleDelete}
-        onUpdate={handleUpdate}
+    <ShowDrinkList drinks={drinks} userID={userID} handleDelete={handleDelete}
+        handleUpdate={handleUpdate}
 />
     </>
   );
