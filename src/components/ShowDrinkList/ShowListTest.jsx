@@ -48,12 +48,9 @@ export default function ShowListTest({ user, setDrinks, drink, drinks, userID, h
                     <CardFooter>
                         
                         <ButtonGroup spacing='2'>
-                            {/* <Link  to="/drinks/:id">Edit here</Link> */}
-                            {/* <Button onClick={() => setShowEdit(!showEdit)}  >Edit</Button> */}
-                            <UpdateDrink drinks={drinks} drinkOne={drink} setDrinks={setDrinks} handleUpdate={handleUpdate}/>
-                            <Button variant='ghost' colorScheme='blue'>
-                                This Delete in on the Show ListTest
-                            </Button>
+                            {/* <Link  to="/drinks/:id">Edit here</Link> 
+                            <Button onClick={() => setShowEdit(!showEdit)}  >Edit</Button>  */}
+                            <UpdateDrink drinks={drinks} drinkOne={drink} setDrinks={setDrinks} handleUpdate={handleUpdate} handleDelete={handleDelete}/>
                         </ButtonGroup>
                     </CardFooter>
                 </Stack>

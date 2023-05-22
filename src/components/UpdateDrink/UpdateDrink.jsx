@@ -12,63 +12,21 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete,
   const { drinkId } = useParams();
   const navigate = useNavigate();
 
-  console.log(userId)
+  // console.log(userId)
 
 
   const [drink, setDrink] = useState({...drinkOne})
-  console.log(drinkOne)
+  // console.log(drinkOne)
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
     setDrink((prevDrink) => ({ ...prevDrink, [name]: value }));
   };
 
-  const handleSubmit = async (evt) => {
-    evt.preventDefault();
-    try {
-      await updateDrink(drinkId, drink);
-      navigate("/drinks");
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-//   const handleDelete = async (drinkId) => {
-//     console.log('delete drinkId', drinkId)
-//     try {
-//       await drinksAPI.deleteDrink(drinkId);
-//       console.log(drinkId)
-//       setDrinks(drinks.filter((drink) => drink._id !== drinkId));
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-const handleDeleteTwo = async (drinkId) => {
-    try {
-      const response = await fetch(`${drinksAPI}/${drinkId}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      console.log(drinkId)
-      if (response.ok) {
-        console.log('Drink deleted successfully.');
-      } else {
-        console.log('Failed to delete the drink.');
-      }
-    } catch (error) {
-      console.log('An error occurred while deleting the drink:', error);
-    }
-  };
-
-  
-
   return (
     <div className="update-drink">
       <h2>Edit this Drink here:</h2>
-      <p>{drink._id}</p>
+      {/* <p>{drink._id}</p> */}
       <form onSubmit={(e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -118,7 +76,7 @@ const handleDeleteTwo = async (drinkId) => {
 
       </form>
         <br />
-      <Button onClick={() => handleDeleteTwo(drink._id)}>This delete is on the UpdateDrink!</Button>
+      <Button onClick={() => handleDelete(drink._id)}>This delete is working!</Button>
     </div>
   );
 }

@@ -17,12 +17,12 @@ async function getAllDrinks(req, res) {
       }
   };
 
+// Controller function to create a drink
 async function createDrink(req, res) {
     try {
       const { name, ingredients, instructions, imageUrl, location } = req.body;
-      const userId = req.user.id;
-  
-      // Create a new drink instance
+      const userId = req.user._id;
+
       const newDrink = new Drink({
         name,
         ingredients,
@@ -32,7 +32,6 @@ async function createDrink(req, res) {
         user: userId
       });
   
-      // Save the drink to the database
       const savedDrink = await newDrink.save();
   
       res.status(201).json(savedDrink);
@@ -42,6 +41,7 @@ async function createDrink(req, res) {
     }
   };
 
+ // Controller function to delete a drink
 async function deleteDrink(req, res) {
     try {
       const drinkId = req.params.id;
@@ -60,14 +60,14 @@ async function deleteDrink(req, res) {
     }
 };
 
-  // Controller function to update a drink
+// Controller function to update a drink
 async function updateDrink(req, res) {
-    console.log("req", req.body)
+    // console.log("req", req.body)
     try {
         
       const { name, ingredients, instructions, imageUrl, location, _id } = req.body;
       const drinkId = _id;
-        console.log("drinkId", drinkId); //
+        // console.log("drinkId", drinkId); 
       // Find the drink by ID"
       const drink = await Drink.findByIdAndUpdate(drinkId, {
         name, 
@@ -76,7 +76,7 @@ async function updateDrink(req, res) {
         imageUrl,
         location,
       }, {new: true});
-      console.log('drink', drink)
+      // console.log('drink', drink)
       if (!drink) {
         return res.status(404).json({ error: 'Drink not found' });
       }

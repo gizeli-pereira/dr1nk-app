@@ -43,18 +43,13 @@ export default function ShowAPIList({ drink }) {
                     <Text
                         fontSize='2xl'
                     >
-                        Ingredients: {ingredients + " " }
+                        Ingredients: { ingredients + " "}
                     </Text>
                     <Divider my={2} />
                     <Text color='blue.600' fontSize='lg'>
                         Instructions: {drink.strInstructions}
                     </Text>
-                    <Text>
-                        You can find it here: {drink.location}
-                    </Text>
-                    
                 </CardBody>
-
 
                 <CardFooter>
                     <Text 

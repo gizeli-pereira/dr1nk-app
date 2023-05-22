@@ -19,7 +19,6 @@ export default function App() {
       { user ?
           <>
             <NavBar user={user} setUser={setUser} />
-            {/* <Home /> */}
             <Routes>
               {/* Route components in here */}
               <Route path="/" element={<Home />} />
