@@ -41,20 +41,18 @@ export default function ShowListTest({ user, setDrinks, drink, drinks, userID, h
                         <Text>
                             You can find it here: {drink.location}
                         </Text>
-                        <p>{drink._id}</p>
+                        {/* <p>{drink._id}</p> */}
                     </CardBody>
 
 
                     <CardFooter>
                         
                         <ButtonGroup spacing='2'>
-                            {/* <Link  to="/drinks/:id">Edit</Link> */}
-                            <Button onClick={() => setShowEdit(!showEdit)}  >Edit</Button>
+                            {/* <Link  to="/drinks/:id">Edit here</Link> */}
+                            {/* <Button onClick={() => setShowEdit(!showEdit)}  >Edit</Button> */}
                             <UpdateDrink drinks={drinks} drinkOne={drink} setDrinks={setDrinks} handleUpdate={handleUpdate}/>
-                            <Button variant='ghost' colorScheme='blue'
-                                
-                            >
-                                Delete
+                            <Button variant='ghost' colorScheme='blue'>
+                                This Delete in on the Show ListTest
                             </Button>
                         </ButtonGroup>
                     </CardFooter>

@@ -30,6 +30,7 @@ export default function Home() {
 
   return (
     <div>
+      <h1>Want to have a drink?</h1>
     <Search />
 
     {data.map((drink, i) => {

@@ -14,36 +14,9 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete,
 
   console.log(userId)
 
-//   const [drink, setDrink] = useState({
-//     name: '',
-//     ingredients: "",
-//     instructions: "",
-//     imageUrl: "",
-//     location: "",
-//   });
 
-    const [drink, setDrink] = useState({...drinkOne})
-
-    
-
-    console.log(drinkOne)
-    // console.log(testone)
-
-
-    // console.log(drinks)
-
-//   useEffect(() => {
-//     const fetchDrink = async () => {
-//       try {
-//         const fetchedDrink = await getDrink(drinkId);
-//         console.log(drinkId)
-//         setDrink(fetchedDrink);
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     };
-//     fetchDrink();
-//   }, [drinkId]);
+  const [drink, setDrink] = useState({...drinkOne})
+  console.log(drinkOne)
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -59,20 +32,6 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete,
       console.error(error);
     }
   };
-
-  // const handleUpdate = async (drinkId) => {
-  //   try {
-  //     await drinksAPI.updateDrink(drinkId, {...drink, user: userId});
-  //     setDrinks((prevDrinks) =>
-  //       prevDrinks.map((drink) =>
-  //         drink._id === drinkId ? { ...drink } : drink
-  //       )
-  //     );
-  //     console.log(drinkId)
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
 
 //   const handleDelete = async (drinkId) => {
 //     console.log('delete drinkId', drinkId)
@@ -95,15 +54,11 @@ const handleDeleteTwo = async (drinkId) => {
       })
       console.log(drinkId)
       if (response.ok) {
-        // Display a success message or perform any additional actions
         console.log('Drink deleted successfully.');
-        // You might also consider updating the drink list after deletion
       } else {
-        // Display an error message if the deletion failed
         console.log('Failed to delete the drink.');
       }
     } catch (error) {
-      // Handle any errors that occur during the deletion process
       console.log('An error occurred while deleting the drink:', error);
     }
   };
@@ -112,7 +67,7 @@ const handleDeleteTwo = async (drinkId) => {
 
   return (
     <div className="update-drink">
-      <h2>Update Drink</h2>
+      <h2>Edit this Drink here:</h2>
       <p>{drink._id}</p>
       <form onSubmit={(e) => {
         e.preventDefault();
@@ -120,7 +75,7 @@ const handleDeleteTwo = async (drinkId) => {
         handleUpdate(drinkId, {...drink, user: userId});
         }}
         >
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">Name:</label>
         <input
           type="text"
           id="name"
@@ -129,21 +84,21 @@ const handleDeleteTwo = async (drinkId) => {
           placeholder={drink.name}
           onChange={handleChange}
         />
-        <label htmlFor="ingredients">Ingredients</label>
+        <label htmlFor="ingredients">Ingredients:</label>
         <input
           type="text"
           name="ingredients"
           value={drink.ingredients}
           onChange={handleChange}
         />
-        <label htmlFor="instructions">Instructions</label>
+        <label htmlFor="instructions">Instructions:</label>
         <textarea
           name="instructions"
           id="instructions"
           value={drink.instructions}
           onChange={handleChange}
         ></textarea>
-        <label htmlFor="imageUrl">Image URL</label>
+        <label htmlFor="imageUrl">Image URL:</label>
         <input
           type="text"
           id="imageUrl"
@@ -151,7 +106,7 @@ const handleDeleteTwo = async (drinkId) => {
           value={drink.imageUrl}
           onChange={handleChange}
         />
-        <label htmlFor="location">Location</label>
+        <label htmlFor="location">Location:</label>
         <input
           type="text"
           id="location"
@@ -159,11 +114,11 @@ const handleDeleteTwo = async (drinkId) => {
           value={drink.location}
           onChange={handleChange}
         />
-        <button type="submit">Update Drink</button>
+        <Button type="submit">Submit Changes</Button>
 
       </form>
-
-      <Button onClick={() => handleDeleteTwo(drink._id)}>Delete</Button>
+        <br />
+      <Button onClick={() => handleDeleteTwo(drink._id)}>This delete is on the UpdateDrink!</Button>
     </div>
   );
 }

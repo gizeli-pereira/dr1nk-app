@@ -42,7 +42,7 @@ async function createDrink(req, res) {
     }
   };
 
- async function deleteDrink(req, res) {
+async function deleteDrink(req, res) {
     try {
       const drinkId = req.params.id;
   
@@ -58,7 +58,7 @@ async function createDrink(req, res) {
       console.error(error);
       res.status(500).json({ error: 'Failed to delete drink' });
     }
-  };
+};
 
   // Controller function to update a drink
 async function updateDrink(req, res) {
@@ -80,16 +80,6 @@ async function updateDrink(req, res) {
       if (!drink) {
         return res.status(404).json({ error: 'Drink not found' });
       }
-  
-      // Update the drink properties
-      // drink.name = name;
-      // drink.ingredients = ingredients;
-      // drink.instructions = instructions;
-      // drink.imageUrl = imageUrl;
-      // drink.location = location;
-  
-      // // Save the updated drink to the database
-      // const updatedDrink = await drink.save();
   
       res.json(drink);
     } catch (error) {

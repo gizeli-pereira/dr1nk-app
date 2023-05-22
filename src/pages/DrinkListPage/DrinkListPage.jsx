@@ -67,7 +67,7 @@ export default function DrinkListPage({ user }) {
         )
       );
       console.log(drinkId)
-      fetchDrinks();
+      fetchDrinks()
     } catch (error) {
       console.error(error);
     }
@@ -83,12 +83,6 @@ export default function DrinkListPage({ user }) {
         
       )
     })}
-
-
-
-    {/* <ShowDrinkList drinks={drinks} userID={userID} handleDelete={handleDelete}
-        handleUpdate={handleUpdate}
-/> */}
     </>
   );
 }
