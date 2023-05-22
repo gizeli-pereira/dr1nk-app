@@ -9,6 +9,7 @@ import NewDrinkPage from '../NewDrinkPage/NewDrinkPage';
 import DrinkListPage from '../DrinkListPage/DrinkListPage';
 import NavBar from '../../components/NavBar/NavBar';
 import UpdateDrink from '../../components/UpdateDrink/UpdateDrink';
+import UpdatePage from '../UpdatePage/UpdatePage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -24,7 +25,7 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/drinks" element={<DrinkListPage user={user}/>} />
               <Route path="/drinks/new" element={<NewDrinkPage user={user}/>} />
-              <Route path="/drinks/:id" element={<UpdateDrink user={user} drinks={drinks} setDrinks={setDrinks}/>} />
+              <Route path="/drinks/:id" element={<UpdatePage user={user} drinks={drinks} setDrinks={setDrinks}/>} />
             </Routes>
           </>
           :

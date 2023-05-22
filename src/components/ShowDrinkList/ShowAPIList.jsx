@@ -28,7 +28,7 @@ export default function ShowAPIList({ drink }) {
             overflow='hidden'
             variant='outline'
             w={"80%"}
-            mx={5}
+            mx={130}
         >
 
             <Image
@@ -55,7 +55,7 @@ export default function ShowAPIList({ drink }) {
                     <Text 
                         fontSize='sm'
                     
-                    >Please drink responsibly</Text>
+                    >Please drink responsibly.</Text>
                 </CardFooter>
             </Stack>
 

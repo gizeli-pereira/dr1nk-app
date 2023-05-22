@@ -7,11 +7,11 @@ router.get('/', drinksCtrl.getAllDrinks);
 
 router.post('/', ensureLoggedIn, drinksCtrl.createDrink);
 
-// router.get('/new', ensureLoggedIn, drinksCtrl.new);
-
 router.delete('/:id', ensureLoggedIn, drinksCtrl.deleteDrink);
 
 router.put('/:id', ensureLoggedIn, drinksCtrl.updateDrink);
+
+router.get('/:id', ensureLoggedIn, drinksCtrl.getDrinkById);
 
 
 // router.get('/:id/edit', ensureLoggedIn, drinksCtrl.edit);

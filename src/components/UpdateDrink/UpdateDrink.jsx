@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getDrink, updateDrink } from "../../utilities/drinks-api";
 import * as drinksAPI from '../../utilities/drinks-api';
-import { Button } from "@chakra-ui/react";
+import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter,  FormLabel, FormControl, Image, Input, Heading, Button, ButtonGroup, Divider, Textarea } from '@chakra-ui/react'
 import { confirmAlert } from "react-confirm-alert";
 import { useGetUserID } from "../../hooks/useGetUserID";
 
@@ -12,11 +12,11 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete,
   const { drinkId } = useParams();
   const navigate = useNavigate();
 
-  // console.log(userId)
+  console.log(drinks)
 
 
   const [drink, setDrink] = useState({...drinkOne})
-  // console.log(drinkOne)
+  console.log(drinkOne)
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -25,7 +25,7 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete,
 
   return (
     <div className="update-drink">
-      <h2>Edit this Drink here:</h2>
+      <Heading as='h2' size='md'>Edit this Drink here:</Heading>
       {/* <p>{drink._id}</p> */}
       <form onSubmit={(e) => {
         e.preventDefault();
@@ -33,8 +33,9 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete,
         handleUpdate(drinkId, {...drink, user: userId});
         }}
         >
-        <label htmlFor="name">Name:</label>
-        <input
+        <FormLabel htmlFor="name">Name:</FormLabel>
+        <Input
+          mb={6} mr={6}
           type="text"
           id="name"
           name="name"
@@ -42,38 +43,42 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete,
           placeholder={drink.name}
           onChange={handleChange}
         />
-        <label htmlFor="ingredients">Ingredients:</label>
-        <input
+        <FormLabel htmlFor="ingredients">Ingredients:</FormLabel>
+        <Input
+          mb={6} mr={6}
           type="text"
           name="ingredients"
           value={drink.ingredients}
           onChange={handleChange}
         />
-        <label htmlFor="instructions">Instructions:</label>
-        <textarea
+        <FormLabel htmlFor="instructions">Instructions:</FormLabel>
+        <Textarea
+          mb={6} mr={6}
           name="instructions"
           id="instructions"
           value={drink.instructions}
           onChange={handleChange}
-        ></textarea>
-        <label htmlFor="imageUrl">Image URL:</label>
-        <input
+        ></Textarea>
+        <FormLabel htmlFor="imageUrl">Image URL:</FormLabel>
+        <Input
+          mb={6} mr={6}
           type="text"
           id="imageUrl"
           name="imageUrl"
           value={drink.imageUrl}
           onChange={handleChange}
         />
-        <label htmlFor="location">Location:</label>
-        <input
+        <FormLabel htmlFor="location">Location:</FormLabel>
+        <Input
+          mb={6} mr={6}
           type="text"
           id="location"
           name="location"
           value={drink.location}
           onChange={handleChange}
         />
+        <br />
         <Button type="submit">Submit Changes</Button>
-
       </form>
         <br />
       <Button onClick={() => handleDelete(drink._id)}>This delete is working!</Button>

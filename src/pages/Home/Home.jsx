@@ -1,7 +1,7 @@
+import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, FormLabel, FormControl, Image, Input, Heading, Button, ButtonGroup, Divider, Textarea } from '@chakra-ui/react';
 import { useState, useCallback, useEffect } from "react";
 import axios from "axios";
 import ShowAPIList from "../../components/ShowDrinkList/ShowAPIList";
-import { Button, StatArrow } from "@chakra-ui/react";
 import Search from "../../components/SearchBar/Search";
 
 
@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Want to have a drink?</h1>
+      <Text textAlign={'center'} fontSize={32} fontWeight={'bold'}>Want to have a drink?</Text>
     <Search />
 
     {data.map((drink, i) => {
@@ -39,7 +39,7 @@ export default function Home() {
       )
     })}
       <Button 
-      m={8}
+      ml={500} mt={6} mb={6}
       bgColor='purple.500'
       color='white'
       borderRadius={20}

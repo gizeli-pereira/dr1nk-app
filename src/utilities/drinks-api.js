@@ -5,8 +5,8 @@ export function getDrinks() {
     return sendRequest(`${BASE_URL}`)
 }
 
-export function getDrink(drinkId) {
-    return sendRequest(`${BASE_URL}/${drinkId}`);
+export function getDrink(drinkId, drink) {
+    return sendRequest(`${BASE_URL}/${drinkId}`, 'GET', drink);
 }  
 
 export async function createDrink(drink) {
@@ -16,10 +16,11 @@ export async function createDrink(drink) {
 export async function deleteDrink(drinkId) {
     return sendRequest(`${BASE_URL}/${drinkId}`, 'DELETE');
   }
-  
+
 export async function updateDrink(drinkId, drink) {
 return sendRequest(`${BASE_URL}/${drinkId}`, 'PUT', drink);
 }
+
 // For example, you had a <MoviesDetailPage> component
 //export function getById(id) {
     //return sendRequest(`${BASE_URL}/${id}`);

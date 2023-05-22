@@ -5,6 +5,7 @@ module.exports = {
     getAllDrinks,
     createDrink,
     deleteDrink,
+    getDrinkById,
     updateDrink
 };
 
@@ -59,6 +60,24 @@ async function deleteDrink(req, res) {
       res.status(500).json({ error: 'Failed to delete drink' });
     }
 };
+
+// Controller function to get a drink by ID
+async function getDrinkById(req, res) {
+  try {
+    const drinkId = req.params.id;
+
+    const drink = await Drink.findById(drinkId).populate('user');
+
+    if (!drink) {
+      return res.status(404).json({ error: 'Drink not found' });
+    }
+
+    res.json(drink);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to get drink' });
+  }
+}
 
 // Controller function to update a drink
 async function updateDrink(req, res) {
