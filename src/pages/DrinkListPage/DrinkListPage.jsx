@@ -35,29 +35,6 @@ export default function DrinkListPage({ user }) {
     }
   };
 
-  // const handleDelete = async (drinkId) => {
-  //   try {
-  //     const response = await fetch(`${drinksAPI}/${drinkId}`, {
-  //       method: 'DELETE',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     })
-  //     console.log(drinkId)
-  //     if (response.ok) {
-  //       // Display a success message or perform any additional actions
-  //       console.log('Drink deleted successfully.');
-  //       // You might also consider updating the drink list after deletion
-  //     } else {
-  //       // Display an error message if the deletion failed
-  //       console.log('Failed to delete the drink.');
-  //     }
-  //   } catch (error) {
-  //     // Handle any errors that occur during the deletion process
-  //     console.log('An error occurred while deleting the drink:', error);
-  //   }
-  // };
-
   const handleUpdate = async (drinkId, payload) => {
     try {
       await drinksAPI.updateDrink(drinkId, {...payload});

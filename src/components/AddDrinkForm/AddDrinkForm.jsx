@@ -1,5 +1,5 @@
+import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, FormLabel, FormControl, Image, Input, Heading, Button, ButtonGroup, Divider, Textarea } from '@chakra-ui/react'
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { createDrink } from "../../utilities/drinks-api";
 
@@ -32,48 +32,54 @@ export default function AddDrinkForm() {
 
   return (
     <div className="add-drink">
-      <h2>Add a Drink</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
+      <Heading size='xl' mb={6} pl={4}>Add a Drink</Heading>
+      <FormControl pl={6} onSubmit={handleSubmit}>
+        <FormLabel htmlFor="name">Name:</FormLabel>
+        <Input
           type="text"
+          placeholder='Ex: Margarita'
           id="name"
           name="name"
           value={drink.name}
           onChange={handleChange}
         />
-        <label htmlFor="ingredients">Ingredients</label>
-        <input
+        <FormLabel htmlFor="ingredients">Ingredients:</FormLabel>
+        <Input
           type="text"
+          placeholder='Ex: Vodka, tequila, ice...'
           name="ingredients"
           value={drink.ingredients}
           onChange={handleChange}
         />
-        <label htmlFor="instructions">Instructions</label>
-        <textarea
+        <FormLabel htmlFor="instructions">Instructions:</FormLabel>
+        <Textarea
+          size='md'
           name="instructions"
+          placeholder='Ex: Mix in a cup...'
           id="instructions"
           value={drink.instructions}
           onChange={handleChange}
-        ></textarea>
-        <label htmlFor="imageUrl">Image URL</label>
-        <input
+        ></Textarea>
+        <FormLabel htmlFor="imageUrl">Image URL:</FormLabel>
+        <Input
           type="text"
+          placeholder='Ex: https://image...jpg'
           id="imageUrl"
           name="imageUrl"
           value={drink.imageUrl}
           onChange={handleChange}
         />
-        <label htmlFor="location">Location</label>
-        <input
+        <FormLabel htmlFor="location">Location:</FormLabel>
+        <Input
           type="text"
+          placeholder="Gigi's bar"
           id="location"
           name="location"
           value={drink.location}
           onChange={handleChange}
         />
-        <button type="submit">Add Drink</button>
-      </form>
+        <Button  mt={4} colorScheme='purple' type="submit">Add Drink</Button>
+      </FormControl>
     </div>
   );
 }

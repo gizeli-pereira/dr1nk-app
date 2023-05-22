@@ -13,7 +13,7 @@ export default function ShowListTest({ user, setDrinks, drink, drinks, userID, h
 
     return (
         <div w={'80vw'}>
-            {/* { showEdit ? <UpdateDrink drinkOne={drink} /> : null } */}
+            { showEdit ? <UpdateDrink drinkOne={drink} /> : null }
 
             {showList ? 
             <Card
