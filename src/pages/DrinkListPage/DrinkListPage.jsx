@@ -2,14 +2,13 @@ import ShowDrinkList from '../../components/ShowDrinkList/ShowDrinkList';
 import { useState, useEffect } from 'react';
 import { useGetUserID } from '../../hooks/useGetUserID';
 import * as drinksAPI from '../../utilities/drinks-api';
-import UpdateDrink from '../../components/UpdateDrink/UpdateDrink';
+import UpdateDrink from '../../components/UpdateDrinkForm/UpdateDrinkForm';
 
 
 
 export default function DrinkListPage({ user }) {
   const [drinks, setDrinks] = useState([]);
   const userID = useGetUserID();
-console.log('drinks')
   const fetchDrinks = async () => {
       try {
         const data = await drinksAPI.getAllDrinks();
@@ -48,13 +47,14 @@ console.log('drinks')
       console.error(error);
     }
   };
-  console.log('drink', drinks)
+  // console.log('drink', drinks)
   return (
     <>
     {drinks.map((drink, i) => {
+      let drinkID = drink._id
       return (
-        <ShowDrinkList user={user} setDrinks={setDrinks} 
-        drink={drink} handleUpdate={handleUpdate} 
+        <ShowDrinkList user={user} userID={userID} setDrinks={setDrinks} 
+        drink={drink} drinkID={drinkID} handleUpdate={handleUpdate} 
         handleDelete={handleDelete} key={i}/>
       )
     })}

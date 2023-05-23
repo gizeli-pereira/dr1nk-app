@@ -8,7 +8,7 @@ import Home from '../Home/Home';
 import NewDrinkPage from '../NewDrinkPage/NewDrinkPage';
 import DrinkListPage from '../DrinkListPage/DrinkListPage';
 import NavBar from '../../components/NavBar/NavBar';
-import UpdateDrink from '../../components/UpdateDrink/UpdateDrink';
+import UpdateDrink from '../../components/UpdateDrinkForm/UpdateDrinkForm';
 import UpdatePage from '../UpdatePage/UpdatePage';
 
 export default function App() {

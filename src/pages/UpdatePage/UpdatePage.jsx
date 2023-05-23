@@ -1,10 +1,9 @@
-import UpdateDrink from "../../components/UpdateDrink/UpdateDrink";
+import UpdateDrinkForm from "../../components/UpdateDrinkForm/UpdateDrinkForm";
 
 export default function UpadatePage() {
     return (
         <div>
-            <UpdateDrink />
-            <p>Drink update</p>
+            <UpdateDrinkForm/>
         </div>
     )
 }

@@ -1,19 +1,23 @@
 import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, Image, Heading, Button, ButtonGroup, Divider } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import UpdateDrink from '../UpdateDrink/UpdateDrink'
+import UpdateDrinkForm from '../UpdateDrinkForm/UpdateDrinkForm'
 import { Routes, Route , useParams} from 'react-router-dom';
 import { useState } from 'react';
 
-export default function ShowDrinkList({ user,  setDrinks, drink, drinks, userID, handleUpdate, handleDelete }) {
+export default function ShowDrinkList({ user,  setDrinks, drink, drinkID, drinks, userID, handleUpdate, handleDelete }) {
 
     const [showEdit, setShowEdit] = useState(false)
     const [showList, setShowList] = useState(true)
     
+   console.log(drinkID)
+   console.log(userID)
+   console.log(showList)
    
 
     return (
+        
         <div w={'80vw'}>
-            { showEdit ? <UpdateDrink drinkOne={drink} /> : null }
+            { showEdit ? <UpdateDrinkForm drinkOne={drink} /> : null }
 
             {showList ? 
             <Card
@@ -47,13 +51,13 @@ export default function ShowDrinkList({ user,  setDrinks, drink, drinks, userID,
                     <CardFooter>
                         
                         <ButtonGroup spacing='2'>
-                            <Link  to="/drinks/:id">Edit here</Link> 
+                            <Link  to={`/drinks/${drinkID}`}>Edit here</Link> 
                             {/* <Button onClick={() => setShowEdit(!showEdit)}  >Edit</Button>  */}
-                            <UpdateDrink drinks={drinks} 
+                            {/* <UpdateDrinkForm drinks={drinks} 
                             drinkOne={drink} 
                             setDrinks={setDrinks} 
                             handleUpdate={handleUpdate}
-                            handleDelete={handleDelete}/>
+                            handleDelete={handleDelete}/> */}
                         </ButtonGroup>
                     </CardFooter>
                 </Stack>

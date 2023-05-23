@@ -9,7 +9,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
-  const cocktailUrl = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
+  const cocktailUrl = `https://www.thecocktaildb.com/api/json/v2/9973533/random.php`;
 
   const fetchCocktail = useCallback(() => {
     setLoading(true);

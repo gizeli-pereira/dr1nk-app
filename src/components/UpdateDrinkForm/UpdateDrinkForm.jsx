@@ -12,11 +12,8 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete,
   const { drinkId } = useParams();
   const navigate = useNavigate();
 
-  console.log(drinks)
-
-
+console.log(drinkOne)
   const [drink, setDrink] = useState({...drinkOne})
-  console.log(drinkOne)
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;

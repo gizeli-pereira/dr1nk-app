@@ -7,9 +7,9 @@ const Search = () => {
 
 
     const searchOptions = {
-        limit: 5,
-        api: `https://www.thecocktaildb.com/api/json/v1/1/`,
-        endpoint: `/search.php`
+        limit: 1,
+        api: `https://www.thecocktaildb.com/api/json/v2/9973533/`,
+        endpoint: `/recent.php`
     }
     const [data, setData] = useState([]);
     const [searchString, setSearchString] = useState("");

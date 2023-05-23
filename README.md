@@ -30,4 +30,4 @@ So why settle for the same old drink routine when Dr1nk can elevate your beverag
 
 ### NEXT STEPS: 
 
-#### You can see the Trello planning here: [Dr1nk]()
+#### You can see the Trello planning here: [Dr1nk](https://trello.com/b/NIjhEX8t/drinks-app)
