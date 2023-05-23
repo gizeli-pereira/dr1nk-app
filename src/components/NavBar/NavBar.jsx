@@ -16,14 +16,14 @@ export default function NavBar({ user, setUser }) {
             <Flex justify="space-between" flex="1">
               <Link to="/">Home</Link>
               &nbsp; | &nbsp;
-              <Link to="/drinks">Drink List</Link>
+              <Link to="/drinks">Your Drink List</Link>
               &nbsp; | &nbsp;
-              <Link to="/drinks/new">New Drink</Link>
+              <Link to="/drinks/new">Add New Drink</Link>
               &nbsp;&nbsp; &nbsp;&nbsp;
               <Box ml={6}>
               <span>Welcome, {user.name}!</span>
               &nbsp;&nbsp; &nbsp;&nbsp;
-              <Link to="" onClick={handleLogOut}>Log Out</Link>
+              <Link color={'purple'} to="" onClick={handleLogOut}>Log Out</Link>
               </Box>
             </Flex>
           </HStack>

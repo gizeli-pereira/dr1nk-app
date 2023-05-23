@@ -78,7 +78,7 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete,
           onChange={handleChange}
         />
         <br />
-        <Button type="submit">Submit Changes</Button>
+          <Button type="submit" >Submit Changes</Button>
       </form>
         <br />
       <Button onClick={() => handleDelete(drink._id)}>This delete is working!</Button>
