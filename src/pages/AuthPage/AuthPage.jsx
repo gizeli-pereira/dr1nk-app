@@ -1,11 +1,4 @@
-import {
-  Button,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Input, Heading
-} from '@chakra-ui/react'
+import { Button, Heading } from '@chakra-ui/react'
 import { useState } from 'react';
 import './AuthPage.css';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';

@@ -8,7 +8,6 @@ import Home from '../Home/Home';
 import NewDrinkPage from '../NewDrinkPage/NewDrinkPage';
 import DrinkListPage from '../DrinkListPage/DrinkListPage';
 import NavBar from '../../components/NavBar/NavBar';
-import UpdateDrink from '../../components/UpdateDrinkForm/UpdateDrinkForm';
 import UpdatePage from '../UpdatePage/UpdatePage';
 
 export default function App() {
@@ -17,19 +16,19 @@ export default function App() {
 
   return (
     <ChakraProvider className="App">
-      { user ?
-          <>
-            <NavBar user={user} setUser={setUser} />
-            <Routes>
-              {/* Route components in here */}
-              <Route path="/" element={<Home />} />
-              <Route path="/drinks" element={<DrinkListPage user={user}/>} />
-              <Route path="/drinks/new" element={<NewDrinkPage user={user}/>} />
-              <Route path="/drinks/:id" element={<UpdatePage user={user} drinks={drinks} setDrinks={setDrinks}/>} />
-            </Routes>
-          </>
-          :
-          <AuthPage setUser={setUser} />
+      {user ?
+        <>
+          <NavBar user={user} setUser={setUser} />
+          <Routes>
+            {/* Route components in here */}
+            <Route path="/" element={<Home />} />
+            <Route path="/drinks" element={<DrinkListPage user={user} />} />
+            <Route path="/drinks/new" element={<NewDrinkPage user={user} />} />
+            <Route path="/drinks/:id" element={<UpdatePage user={user} drinks={drinks} setDrinks={setDrinks} />} />
+          </Routes>
+        </>
+        :
+        <AuthPage setUser={setUser} />
       }
     </ChakraProvider>
   );

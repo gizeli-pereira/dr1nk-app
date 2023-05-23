@@ -21,9 +21,9 @@ export default function NavBar({ user, setUser }) {
               <Link to="/drinks/new">Add New Drink</Link>
               &nbsp;&nbsp; &nbsp;&nbsp;
               <Box ml={6}>
-              <span>Welcome, {user.name}!</span>
-              &nbsp;&nbsp; &nbsp;&nbsp;
-              <Link color={'purple'} to="" onClick={handleLogOut}>Log Out</Link>
+                <span>Welcome, {user.name}!</span>
+                &nbsp;&nbsp; &nbsp;&nbsp;
+                <Link color={'purple'} to="" onClick={handleLogOut}>Log Out</Link>
               </Box>
             </Flex>
           </HStack>

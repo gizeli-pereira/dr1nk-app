@@ -17,14 +17,14 @@ export default function Home() {
       console.log(res.data)
       setData(res.data.drinks)
     }).catch(e => console.log(e))
-    .finally(() => setLoading(false))
+      .finally(() => setLoading(false))
   }, [])
 
   useEffect(() => {
     fetchCocktail();
   }, [fetchCocktail]);
 
-  if(loading){
+  if (loading) {
     return <h2>Loading...</h2>
   }
 
@@ -32,19 +32,19 @@ export default function Home() {
     <div>
       <Text textAlign={'center'} fontSize={32} fontWeight={'bold'}>Want to have a drink?</Text>
       <br />
-    {/* <Search /> */}
+      {/* <Search /> */}
 
-    {data.map((drink, i) => {
-      return (
-        <ShowAPIList key={i} drink={drink}/>
-      )
-    })}
-      <Button 
-      ml={500} mt={6} mb={6}
-      bgColor='purple.500'
-      color='white'
-      borderRadius={20}
-      onClick={fetchCocktail} >Get Another Cocktail</Button>
+      {data.map((drink, i) => {
+        return (
+          <ShowAPIList key={i} drink={drink} />
+        )
+      })}
+      <Button
+        ml={500} mt={6} mb={6}
+        bgColor='purple.500'
+        color='white'
+        borderRadius={20}
+        onClick={fetchCocktail} >Get Another Cocktail</Button>
     </div>
 
   );

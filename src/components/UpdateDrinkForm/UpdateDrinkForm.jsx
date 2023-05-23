@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getDrink, updateDrink } from "../../utilities/drinks-api";
 import * as drinksAPI from '../../utilities/drinks-api';
-import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter,  FormLabel, FormControl, Image, Input, Heading, Button, ButtonGroup, Divider, Textarea } from '@chakra-ui/react'
+import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, FormLabel, FormControl, Image, Input, Heading, Button, ButtonGroup, Divider, Textarea } from '@chakra-ui/react'
 import { confirmAlert } from "react-confirm-alert";
 import { useGetUserID } from "../../hooks/useGetUserID";
 
@@ -12,8 +12,8 @@ export default function UpdateDrink({ drinkOne, drinks, setDrinks, handleDelete,
   const { drinkId } = useParams();
   const navigate = useNavigate();
 
-console.log(drinkOne)
-  const [drink, setDrink] = useState({...drinkOne})
+  console.log(drinkOne)
+  const [drink, setDrink] = useState({ ...drinkOne })
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -26,9 +26,9 @@ console.log(drinkOne)
       <form onSubmit={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        handleUpdate(drinkId, {...drink, user: userId});
-        }}
-        >
+        handleUpdate(drinkId, { ...drink, user: userId });
+      }}
+      >
         <FormLabel htmlFor="name">Name:</FormLabel>
         <Input
           mb={6} mr={6}
@@ -74,9 +74,9 @@ console.log(drinkOne)
           onChange={handleChange}
         />
         <br />
-          <Button type="submit" >Submit Changes</Button>
+        <Button type="submit" >Submit Changes</Button>
       </form>
-        <br />
+      <br />
       <Button onClick={() => handleDelete(drink._id)}>This delete is working!</Button>
     </div>
   );

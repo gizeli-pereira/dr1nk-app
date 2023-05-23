@@ -9,18 +9,18 @@ export default function ShowAPIList({ drink }) {
         drink.strIngredient3,
         drink.strIngredient4,
         drink.strIngredient5
-      ];
-      
-      const hasNullIngredient = ingredients.some(ingredient => ingredient === null);
-      
-      if (hasNullIngredient) {
+    ];
+
+    const hasNullIngredient = ingredients.some(ingredient => ingredient === null);
+
+    if (hasNullIngredient) {
         console.log("Null ingredient found, stopping array.");
-      } else {
+    } else {
         ingredients.forEach(ingredient => {
-          // Process the ingredient
-          console.log(ingredient);
+            // Process the ingredient
+            console.log(ingredient);
         });
-      }
+    }
 
     return (
         <Card
@@ -43,7 +43,7 @@ export default function ShowAPIList({ drink }) {
                     <Text
                         fontSize='2xl'
                     >
-                        Ingredients: { ingredients + " "}
+                        Ingredients: {ingredients + " "}
                     </Text>
                     <Divider my={2} />
                     <Text color='blue.600' fontSize='lg'>
@@ -52,9 +52,9 @@ export default function ShowAPIList({ drink }) {
                 </CardBody>
 
                 <CardFooter>
-                    <Text 
+                    <Text
                         fontSize='sm'
-                    
+
                     >Please drink responsibly.</Text>
                 </CardFooter>
             </Stack>

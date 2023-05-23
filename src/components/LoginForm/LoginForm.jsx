@@ -40,19 +40,19 @@ export default function LoginForm({ setUser }) {
     <div>
       <div className="form-container">
         <FormControl>
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <FormLabel>Email</FormLabel>
-          <Input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <FormLabel>Password</FormLabel>
-          <Input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <br />
-          <Button 
-           ml={15} mt={6} mb={6}
-           bgColor='purple.500'
-           color='white'
-           borderRadius={20}
-           type="submit">LOG IN</Button>
-        </form>
+          <form autoComplete="off" onSubmit={handleSubmit}>
+            <FormLabel>Email</FormLabel>
+            <Input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+            <FormLabel>Password</FormLabel>
+            <Input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+            <br />
+            <Button
+              ml={15} mt={6} mb={6}
+              bgColor='purple.500'
+              color='white'
+              borderRadius={20}
+              type="submit">LOG IN</Button>
+          </form>
         </FormControl>
       </div>
       <p className="error-message">&nbsp;{error}</p>
