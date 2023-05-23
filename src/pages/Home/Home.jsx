@@ -1,7 +1,7 @@
 import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, FormLabel, FormControl, Image, Input, Heading, Button, ButtonGroup, Divider, Textarea } from '@chakra-ui/react';
 import { useState, useCallback, useEffect } from "react";
 import axios from "axios";
-import ShowAPIList from "../../components/ShowDrinkList/ShowAPIList";
+import ShowAPIList from "../../components/ShowAPIList/ShowAPIList";
 import Search from "../../components/SearchBar/Search";
 
 

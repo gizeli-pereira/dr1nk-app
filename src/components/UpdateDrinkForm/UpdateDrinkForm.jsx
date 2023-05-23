@@ -23,7 +23,6 @@ console.log(drinkOne)
   return (
     <div className="update-drink">
       <Heading as='h2' size='md'>Edit this Drink here:</Heading>
-      {/* <p>{drink._id}</p> */}
       <form onSubmit={(e) => {
         e.preventDefault();
         e.stopPropagation();

@@ -8,11 +8,6 @@ export default function ShowDrinkList({ user,  setDrinks, drink, drinkID, drinks
 
     const [showEdit, setShowEdit] = useState(false)
     const [showList, setShowList] = useState(true)
-    
-   console.log(drinkID)
-   console.log(userID)
-   console.log(showList)
-   
 
     return (
         
@@ -51,7 +46,15 @@ export default function ShowDrinkList({ user,  setDrinks, drink, drinkID, drinks
                     <CardFooter>
                         
                         <ButtonGroup spacing='2'>
-                            <Link  to={`/drinks/${drinkID}`}>Edit here</Link> 
+                            {/* <Link  to={`/drinks/${drinkID}`}>Edit here</Link>  */}
+                            <br />
+                            <Button
+                                ml={6} mt={6} mb={6}
+                                bgColor='purple.500'
+                                color='white'
+                                borderRadius={20} 
+                                onClick={() => handleDelete(drinkID)}>Delete this drink!
+                            </Button>
                             {/* <Button onClick={() => setShowEdit(!showEdit)}  >Edit</Button>  */}
                             {/* <UpdateDrinkForm drinks={drinks} 
                             drinkOne={drink} 
