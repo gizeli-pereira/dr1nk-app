@@ -12,7 +12,7 @@ export default function DrinkListPage({ user }) {
 console.log('drinks')
   const fetchDrinks = async () => {
       try {
-        const data = await drinksAPI.getDrinks();
+        const data = await drinksAPI.getAllDrinks();
         setDrinks(data);
       } catch (error) {
         console.error(error);

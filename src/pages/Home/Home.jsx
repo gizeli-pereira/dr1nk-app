@@ -31,7 +31,8 @@ export default function Home() {
   return (
     <div>
       <Text textAlign={'center'} fontSize={32} fontWeight={'bold'}>Want to have a drink?</Text>
-    <Search />
+      <br />
+    {/* <Search /> */}
 
     {data.map((drink, i) => {
       return (

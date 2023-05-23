@@ -6,6 +6,7 @@ module.exports = {
     createDrink,
     deleteDrink,
     getDrinkById,
+    getUser,
     updateDrink
 };
 
@@ -77,6 +78,13 @@ async function getDrinkById(req, res) {
     console.error(error);
     res.status(500).json({ error: 'Failed to get drink' });
   }
+}
+
+ // Controller function to get drinks for the logged in user
+async function getUser(req, res) {
+ 
+  const userDrinks = await Drink.find({user: req.user._id});
+  res.json(userDrinks);
 }
 
 // Controller function to update a drink

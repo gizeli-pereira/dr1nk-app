@@ -7,11 +7,14 @@ router.get('/', drinksCtrl.getAllDrinks);
 
 router.post('/', ensureLoggedIn, drinksCtrl.createDrink);
 
-router.delete('/:id', ensureLoggedIn, drinksCtrl.deleteDrink);
+router.get('/user', ensureLoggedIn, drinksCtrl.getUser);
+
+router.get('/:id', ensureLoggedIn, drinksCtrl.getDrinkById);
 
 router.put('/:id', ensureLoggedIn, drinksCtrl.updateDrink);
 
-router.get('/:id', ensureLoggedIn, drinksCtrl.getDrinkById);
+router.delete('/:id', ensureLoggedIn, drinksCtrl.deleteDrink);
+
 
 
 // router.get('/:id/edit', ensureLoggedIn, drinksCtrl.edit);

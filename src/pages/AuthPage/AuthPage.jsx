@@ -1,3 +1,11 @@
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input, Heading
+} from '@chakra-ui/react'
 import { useState } from 'react';
 import './AuthPage.css';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
@@ -9,8 +17,14 @@ export default function AuthPage({ setUser }) {
     <main className="AuthPage">
       <div>
         {/* Logo later on instead of h1 */}
-        <h1>Dr1nk</h1>
-        <h3 onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'CLICK TO SIGN UP' : 'CLICK TO LOG IN'}</h3>
+        <Heading size='4xl'>Dr1nk</Heading>
+        <br />
+        <Button 
+         ml={6} mt={6} mb={6}
+         bgColor='purple.500'
+         color='white'
+         borderRadius={20}
+         onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'CLICK TO SIGN UP' : 'CLICK TO LOG IN'}</Button>
       </div>
       {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
     </main>
