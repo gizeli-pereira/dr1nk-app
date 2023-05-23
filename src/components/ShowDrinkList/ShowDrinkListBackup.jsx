@@ -1,11 +1,20 @@
-import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, Image, Heading, Button, ButtonGroup, Divider } from '@chakra-ui/react';
+import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, Image, Heading, Button, ButtonGroup, Divider } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
+import UpdateDrinkForm from '../UpdateDrinkForm/UpdateDrinkForm'
+import { Routes, Route, useParams } from 'react-router-dom';
 import { useState } from 'react';
 
-export default function ShowDrinkList({ user, setDrinks, drink, drinkID, drinks, userID, handleDelete }) {
+export default function ShowDrinkList({ user, setDrinks, drink, drinkID, drinks, userID, HandleUpdate, handleDelete }) {
+
+    const [showEdit, setShowEdit] = useState(false)
+    const [showList, setShowList] = useState(true)
 
     return (
 
         <div w={'80vw'}>
+            {showEdit ? <UpdateDrinkForm drinkOne={drink} /> : null}
+
+            {showList ?
                 <Card
                     direction={{ base: 'column', sm: 'row' }}
                     overflow='hidden'
@@ -44,11 +53,20 @@ export default function ShowDrinkList({ user, setDrinks, drink, drinkID, drinks,
                                     borderRadius={20}
                                     onClick={() => handleDelete(drink._id)}>Delete this drink!
                                 </Button>
+                                {/* <Link  to={`/drinks/${drinkID}`}>Edit here</Link>  */}
+                                {/* <Button onClick={() => setShowEdit(!showEdit)}  >Edit</Button>  */}
+                                {/* <UpdateDrinkForm drinks={drinks} 
+                            drinkOne={drink} 
+                            setDrinks={setDrinks} 
+                            handleUpdate={handleUpdate}
+                            handleDelete={handleDelete}/> */}
                             </ButtonGroup>
                         </CardFooter>
                     </Stack>
 
-                </Card> 
+                </Card> : null
+            }
+
         </div>
     )
 };

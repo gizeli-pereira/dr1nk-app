@@ -15,10 +15,4 @@ router.put('/:id', ensureLoggedIn, drinksCtrl.updateDrink);
 
 router.delete('/:id', ensureLoggedIn, drinksCtrl.deleteDrink);
 
-
-
-// router.get('/:id/edit', ensureLoggedIn, drinksCtrl.edit);
-
-// router.get('/:id', drinksCtrl.show);
-
 module.exports = router;

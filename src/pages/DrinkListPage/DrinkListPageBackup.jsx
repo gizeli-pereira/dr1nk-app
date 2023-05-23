@@ -2,6 +2,8 @@ import ShowDrinkList from '../../components/ShowDrinkList/ShowDrinkList';
 import { useState, useEffect } from 'react';
 import { useGetUserID } from '../../hooks/useGetUserID';
 import * as drinksAPI from '../../utilities/drinks-api';
+import UpdateDrinkForm from '../../components/UpdateDrinkForm/UpdateDrinkForm';
+import { Button } from '@chakra-ui/react'
 
 export default function DrinkListPage({ user }) {
   const [drinks, setDrinks] = useState([]);
@@ -31,6 +33,24 @@ export default function DrinkListPage({ user }) {
     }
   };
 
+   const handleUpdate = async () => {
+  
+   }
+  // const handleUpdate = async (drinkId, payload) => {
+  //   try {
+  //     await drinksAPI.updateDrink(drinkId, { ...payload });
+  //     setDrinks((prevDrinks) =>
+  //       prevDrinks.map((drink) =>
+  //         drink._id === drinkId ? { ...drink } : drink
+  //       )
+  //     );
+  //     console.log(drinkId)
+  //     fetchDrinks()
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
   return (
     <>
       {drinks.map((drink, i) => {
@@ -38,7 +58,7 @@ export default function DrinkListPage({ user }) {
         return (
 
           <ShowDrinkList user={user} userID={userID} setDrinks={setDrinks}
-            drink={drink} drinkID={drinkID}
+            drink={drink} drinkID={drinkID} handleUpdate={handleUpdate}
             handleDelete={handleDelete} key={i} />
         )
       })}
