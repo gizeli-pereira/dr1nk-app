@@ -1,4 +1,4 @@
-import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, FormLabel, FormControl, Image, Input, Heading, Button, ButtonGroup, Divider, Textarea } from '@chakra-ui/react';
+import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, FormLabel, FormControl, Image, Input, Heading, Button, ButtonGroup, Divider, Textarea, Container } from '@chakra-ui/react';
 import { useState, useCallback, useEffect } from "react";
 import axios from "axios";
 import ShowAPIList from "../../components/ShowAPIList/ShowAPIList";
@@ -45,7 +45,24 @@ export default function Home() {
         color='white'
         borderRadius={20}
         onClick={fetchCocktail} >Get Another Cocktail</Button>
+
+        <Container
+          id='footer-main'
+          align='center' 
+          fontSize='lg'
+          my={2}
+          display='flex'
+          >
+          <Text fontSize='sm' p={3} mx={'auto'}>
+            Please Dr1nk Responsibly
+          </Text>
+          <Text fontSize="sm" color="subtle" py={3} mx={'auto'}>
+          &copy; {new Date().getFullYear()} All rights reserved.
+        </Text>
+        </Container>
     </div>
+    
+    
 
   );
 }

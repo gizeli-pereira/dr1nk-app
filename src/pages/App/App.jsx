@@ -1,4 +1,4 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, Container, Text, Flex, Stack, StackDivider } from '@chakra-ui/react'
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
@@ -30,6 +30,8 @@ export default function App() {
         :
         <AuthPage setUser={setUser} />
       }
+      
+      
     </ChakraProvider>
   );
 }

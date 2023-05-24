@@ -50,13 +50,6 @@ export default function ShowAPIList({ drink }) {
                         Instructions: {drink.strInstructions}
                     </Text>
                 </CardBody>
-
-                <CardFooter>
-                    <Text
-                        fontSize='sm'
-
-                    >Please drink responsibly.</Text>
-                </CardFooter>
             </Stack>
 
         </Card>

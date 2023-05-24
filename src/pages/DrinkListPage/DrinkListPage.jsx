@@ -2,6 +2,7 @@ import ShowDrinkList from '../../components/ShowDrinkList/ShowDrinkList';
 import { useState, useEffect } from 'react';
 import { useGetUserID } from '../../hooks/useGetUserID';
 import * as drinksAPI from '../../utilities/drinks-api';
+import { Box, Container, Text } from '@chakra-ui/react';
 
 export default function DrinkListPage({ user }) {
   const [drinks, setDrinks] = useState([]);
@@ -32,7 +33,7 @@ export default function DrinkListPage({ user }) {
   };
 
   return (
-    <>
+    <Box>
       {drinks.map((drink, i) => {
         let drinkID = drink._id
         return (
@@ -43,6 +44,20 @@ export default function DrinkListPage({ user }) {
         )
       })}
 
-    </>
+      <Container
+          id='footer'
+          align='center' 
+          fontSize='lg'
+          my={2}
+          display='flex'
+          >
+          <Text fontSize='sm' p={3} mx={'auto'}>
+            Please Dr1nk Responsibly
+          </Text>
+          <Text fontSize="sm" color="subtle" py={3} mx={'auto'}>
+          &copy; {new Date().getFullYear()} All rights reserved.
+        </Text>
+        </Container>
+    </Box>
   );
 }

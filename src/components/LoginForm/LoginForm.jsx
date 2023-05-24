@@ -5,6 +5,7 @@ import {
   FormErrorMessage,
   FormHelperText,
   Input,
+  Card,
 } from '@chakra-ui/react'
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
@@ -38,12 +39,19 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div>
-      <div className="form-container">
-        <FormControl>
+      <Card 
+        className="form-container"
+        p={8}
+        my={6}
+        bgGradient='linear(to-r, pink.200, purple.200)'
+        sm='200px'
+        >
+        <FormControl
+        >
           <form autoComplete="off" onSubmit={handleSubmit}>
             <FormLabel>Email</FormLabel>
             <Input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-            <FormLabel>Password</FormLabel>
+            <FormLabel mt={3} >Password</FormLabel>
             <Input type="password" name="password" value={credentials.password} onChange={handleChange} required />
             <br />
             <Button
@@ -54,7 +62,7 @@ export default function LoginForm({ setUser }) {
               type="submit">LOG IN</Button>
           </form>
         </FormControl>
-      </div>
+      </Card>
       <p className="error-message">&nbsp;{error}</p>
     </div>
   );

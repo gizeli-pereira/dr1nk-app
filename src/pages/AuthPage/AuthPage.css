@@ -13,3 +13,20 @@
     color: var(--text-light);
     cursor: pointer;
   }
+
+#title-text {
+  width: 100%;
+  font-weight: 600;
+  color: transparent;
+  background-image: linear-gradient(to right ,#553c9a, #ee4b2b, #00c2cb, #ff7f50, #553c9a);
+  -webkit-background-clip: text;
+  background-clip: text;    
+  background-size: 200%;
+  background-position: -200%;
+  animation: animated-gradient 2s infinite alternate-reverse;      
+}
+@keyframes animated-gradient{
+  to{
+    background-position: 200%;
+  }
+}

@@ -10,7 +10,11 @@ export default function AuthPage({ setUser }) {
     <main className="AuthPage">
       <div>
         {/* Logo later on instead of h1 */}
-        <Heading size='4xl'>Dr1nk</Heading>
+        <Heading 
+          size='4xl'
+          id='title-text'
+          
+        >Dr1nk</Heading>
         <br />
         <Button 
          ml={6} mt={6} mb={6}
