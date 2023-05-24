@@ -40,6 +40,7 @@ export default function AddDrinkForm() {
             mb={6} mr={6}
             type="text"
             placeholder='Ex: Margarita'
+            autoComplete='on'
             id="name"
             name="name"
             value={drink.name}
@@ -50,6 +51,7 @@ export default function AddDrinkForm() {
             mb={6} mr={6}
             type="text"
             placeholder='Ex: Vodka, tequila, ice...'
+            autoComplete='on'
             name="ingredients"
             value={drink.ingredients}
             onChange={handleChange}
@@ -59,6 +61,7 @@ export default function AddDrinkForm() {
             mb={6} mr={6}
             name="instructions"
             placeholder='Ex: Mix in a cup...'
+            autoComplete='on'
             id="instructions"
             value={drink.instructions}
             onChange={handleChange}
@@ -68,6 +71,7 @@ export default function AddDrinkForm() {
             mb={6} mr={6}
             type="text"
             placeholder='Ex: https://image...jpg'
+            autoComplete='on'
             id="imageUrl"
             name="imageUrl"
             value={drink.imageUrl}
@@ -78,6 +82,7 @@ export default function AddDrinkForm() {
             mb={6} mr={6}
             type="text"
             placeholder="Gigi's bar"
+            autoComplete='on'
             id="location"
             name="location"
             value={drink.location}

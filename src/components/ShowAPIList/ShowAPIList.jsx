@@ -38,7 +38,7 @@ export default function ShowAPIList({ drink }) {
                 alt='#'
             />
             <Stack mt='6' spacing='3'>
-                <CardBody w={'100%'}>
+                <CardBody w={'100%'} align={'justify'}>
                     <Heading size='2xl'>{drink.strDrink}</Heading>
                     <Text
                         fontSize='2xl'

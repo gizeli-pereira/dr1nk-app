@@ -8,7 +8,7 @@ We understand that the perfect drink not only satisfies your taste buds but also
 
 So why settle for the same old drink routine when Dr1nk can elevate your beverage game to new heights? Get ready to embark on a tantalizing journey of flavors, surprises, and endless possibilities. Sign up for Dr1nk now and prepare to indulge in the world of refreshment like never before! Cheers to a taste adventure you'll never forget.
 
-#### YOU CAN VISIT THE PAGE HERE: [Dr1nk] ()
+#### YOU CAN EXPLORE THE APP HERE: [Dr1nk] ()
 
 ### Auth Page
 
@@ -44,5 +44,6 @@ So why settle for the same old drink routine when Dr1nk can elevate your beverag
 * Add Google Maps API for bar locations.
 * Add search bar for drinks with Cocktail API.
 * Enable Update function to user Drinks List.
+* Enable Save drinks from API to user Drinks List.
 
 #### You can see the Trello planning here: [Dr1nk](https://trello.com/b/NIjhEX8t/drinks-app)

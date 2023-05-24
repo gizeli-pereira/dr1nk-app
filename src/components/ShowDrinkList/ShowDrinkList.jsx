@@ -27,7 +27,7 @@ export default function ShowDrinkList({ user, setDrinks, drink, drinkID, drinks,
 
                     />
                     <Stack mt='6' ml='6' spacing='3'>
-                        <CardBody w={'100%'}>
+                        <CardBody w={'100%'}  align={'justify'}>
                             <Heading fontSize='2xl' >{drink.name}</Heading>
                             <Text>
                                 <strong>Ingredients:</strong> {drink.ingredients}

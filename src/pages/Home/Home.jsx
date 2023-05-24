@@ -1,9 +1,8 @@
-import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, FormLabel, FormControl, Image, Input, Heading, Button, ButtonGroup, Divider, Textarea, Container } from '@chakra-ui/react';
+import { Text, Button, Container } from '@chakra-ui/react';
 import { useState, useCallback, useEffect } from "react";
 import axios from "axios";
 import ShowAPIList from "../../components/ShowAPIList/ShowAPIList";
 import Search from "../../components/SearchBar/Search";
-
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -39,30 +38,33 @@ export default function Home() {
           <ShowAPIList key={i} drink={drink} />
         )
       })}
-      <Button
-        ml={500} mt={6} mb={6}
-        bgColor='purple.500'
-        color='white'
-        borderRadius={20}
-        onClick={fetchCocktail} >Get Another Cocktail</Button>
-
-        <Container
-          id='footer-main'
-          align='center' 
-          fontSize='lg'
-          my={2}
-          display='flex'
-          >
-          <Text as='b' fontSize='sm' p={3} mx={'auto'}>
-            Please Dr1nk Responsibly
-          </Text>
-          <Text fontSize="sm" color="subtle" py={3} mx={'auto'}>
+      <Container align='center' >
+        <Button
+          m={'auto'} mt={6} mb={6}
+          bgColor='purple.500'
+          color='white'
+          align='center'
+          justifyContent={'center'}
+          borderRadius={20}
+          onClick={fetchCocktail} >Get Another Cocktail</Button>
+      </Container>
+      <Container
+        id='footer-main'
+        align='center'
+        fontSize='lg'
+        my={2}
+        display='flex'
+      >
+        <Text as='b' fontSize='sm' p={3} mx={'auto'}>
+          Please Dr1nk Responsibly
+        </Text>
+        <Text fontSize="sm" color="subtle" py={3} mx={'auto'}>
           &copy; {new Date().getFullYear()} All rights reserved.
         </Text>
-        </Container>
+      </Container>
     </div>
-    
-    
+
+
 
   );
 }

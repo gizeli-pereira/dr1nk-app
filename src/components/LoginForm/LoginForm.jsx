@@ -50,7 +50,7 @@ export default function LoginForm({ setUser }) {
         >
           <form autoComplete="off" onSubmit={handleSubmit}>
             <FormLabel>Email</FormLabel>
-            <Input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+            <Input type="text" autoComplete='on' name="email" value={credentials.email} onChange={handleChange} required />
             <FormLabel mt={3} >Password</FormLabel>
             <Input type="password" name="password" value={credentials.password} onChange={handleChange} required />
             <br />

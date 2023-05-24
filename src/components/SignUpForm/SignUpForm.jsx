@@ -58,9 +58,9 @@ export default class SignUpForm extends Component {
             <FormControl>
               <form autoComplete="off" onSubmit={this.handleSubmit}>
                 <FormLabel>Name</FormLabel>
-                <Input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+                <Input type="text"  autoComplete='on' name="name" value={this.state.name} onChange={this.handleChange} required />
                 <FormLabel>Email</FormLabel>
-                <Input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+                <Input type="email"  autoComplete='on' name="email" value={this.state.email} onChange={this.handleChange} required />
                 <FormLabel>Password</FormLabel>
                 <Input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
                 <FormLabel>Confirm</FormLabel>
