@@ -11,7 +11,8 @@ export default function DrinkListPage({ user }) {
   const fetchDrinks = async () => {
     try {
       const data = await drinksAPI.getAllDrinks();
-      setDrinks(data);
+      const sortedDrinks = data.sort((a, b) => a.name.localeCompare(b.name)); 
+      setDrinks(sortedDrinks);
     } catch (error) {
       console.error(error);
     }
@@ -45,19 +46,19 @@ export default function DrinkListPage({ user }) {
       })}
 
       <Container
-          id='footer'
-          align='center' 
-          fontSize='lg'
-          my={2}
-          display='flex'
-          >
-          <Text fontSize='sm' p={3} mx={'auto'}>
-            Please Dr1nk Responsibly
-          </Text>
-          <Text fontSize="sm" color="subtle" py={3} mx={'auto'}>
+        id='footer'
+        align='center'
+        fontSize='lg'
+        my={2}
+        display='flex'
+      >
+        <Text as='b' fontSize='sm' p={3} mx={'auto'}>
+          Please Dr1nk Responsibly
+        </Text>
+        <Text fontSize="sm" color="subtle" py={3} mx={'auto'}>
           &copy; {new Date().getFullYear()} All rights reserved.
         </Text>
-        </Container>
+      </Container>
     </Box>
   );
 }

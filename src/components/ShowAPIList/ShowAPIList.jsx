@@ -43,11 +43,11 @@ export default function ShowAPIList({ drink }) {
                     <Text
                         fontSize='2xl'
                     >
-                        Ingredients: {ingredients + " "}
+                        <strong>Ingredients:</strong> {ingredients.join(', ')}
                     </Text>
                     <Divider my={2} />
                     <Text color='blue.600' fontSize='lg'>
-                        Instructions: {drink.strInstructions}
+                    <strong>Instructions:</strong> {drink.strInstructions}
                     </Text>
                 </CardBody>
             </Stack>

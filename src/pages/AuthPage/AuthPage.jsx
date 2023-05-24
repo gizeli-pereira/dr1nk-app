@@ -9,19 +9,19 @@ export default function AuthPage({ setUser }) {
   return (
     <main className="AuthPage">
       <div>
-        {/* Logo later on instead of h1 */}
-        <Heading 
+        <Heading
           size='4xl'
           id='title-text'
-          
-        >Dr1nk</Heading>
+
+        >Dr1nk
+        </Heading>
         <br />
-        <Button 
-         ml={6} mt={6} mb={6}
-         bgColor='purple.500'
-         color='white'
-         borderRadius={20}
-         onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'CLICK TO SIGN UP' : 'CLICK TO LOG IN'}</Button>
+        <Button
+          ml={6} mt={6} mb={6}
+          bgColor='purple.500'
+          color='white'
+          borderRadius={20}
+          onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'CLICK TO SIGN UP' : 'CLICK TO LOG IN'}</Button>
       </div>
       {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
     </main>

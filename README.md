@@ -10,9 +10,21 @@ So why settle for the same old drink routine when Dr1nk can elevate your beverag
 
 #### YOU CAN VISIT THE PAGE HERE: [Dr1nk] ()
 
-### Sign Up Page 
+### Auth Page
 
-![Sign Up Page]()
+![Auth Page]()
+
+### Home Page
+
+![Home Page]()
+
+### Drink List Page
+
+![Drink List Page]()
+
+### Add New Drink Page
+
+![Add New Drink Page]()
 
 ### TECNOLOGIES USED:
 ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
@@ -29,5 +41,8 @@ So why settle for the same old drink routine when Dr1nk can elevate your beverag
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 
 ### NEXT STEPS: 
+* Add Google Maps API for bar locations.
+* Add search bar for drinks with Cocktail API.
+* Enable Update function to user Drinks List.
 
 #### You can see the Trello planning here: [Dr1nk](https://trello.com/b/NIjhEX8t/drinks-app)

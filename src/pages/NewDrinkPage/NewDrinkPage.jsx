@@ -13,7 +13,7 @@ export default function NewDrinkPage({ user }) {
           my={2}
           display='flex'
           >
-          <Text fontSize='sm' p={3} mx={'auto'}>
+          <Text as='b' fontSize='sm' p={3} mx={'auto'}>
             Please Dr1nk Responsibly
           </Text>
           <Text fontSize="sm" color="subtle" py={3} mx={'auto'}>

@@ -3,6 +3,11 @@ import { useState } from 'react';
 
 export default function ShowDrinkList({ user, setDrinks, drink, drinkID, drinks, userID, handleDelete }) {
 
+    // if (drink.user !== userID) {
+    //     // Skip rendering this drink if it doesn't belong to the user
+    //     return null;
+    // }
+    
     return (
 
         <div w={'80vw'}>
@@ -23,15 +28,15 @@ export default function ShowDrinkList({ user, setDrinks, drink, drinkID, drinks,
                     />
                     <Stack mt='6' ml='6' spacing='3'>
                         <CardBody w={'100%'}>
-                            <Heading size='md'>{drink.name}</Heading>
+                            <Heading fontSize='2xl' >{drink.name}</Heading>
                             <Text>
-                                Ingredients: {drink.ingredients}
+                                <strong>Ingredients:</strong> {drink.ingredients}
                             </Text>
-                            <Text color='blue.600' fontSize='2xl'>
-                                Instructions: {drink.instructions}
+                            <Text color='blue.500' size='md'>
+                                <strong>Instructions:</strong> {drink.instructions}
                             </Text>
                             <Text>
-                                You can find it here: {drink.location}
+                            <strong>You can find it here:</strong>{drink.location}
                             </Text>
                         </CardBody>
                         <CardFooter>

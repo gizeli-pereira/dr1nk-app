@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import { Box, Container, Flex, ButtonGroup, Button, HStack } from '@chakra-ui/react'
+import "./NavBar.css"
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
@@ -16,7 +17,7 @@ export default function NavBar({ user, setUser }) {
             <Flex justify="space-between" flex="1">
               <Link to="/">Home</Link>
               &nbsp; | &nbsp;
-              <Link to="/drinks">Your Drink List</Link>
+              <Link to="/drinks">Drink List</Link>
               &nbsp; | &nbsp;
               <Link to="/drinks/new">Add New Drink</Link>
               &nbsp;&nbsp; &nbsp;&nbsp;
