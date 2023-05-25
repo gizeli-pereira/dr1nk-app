@@ -12,19 +12,19 @@ So why settle for the same old drink routine when Dr1nk can elevate your beverag
 
 ### Auth Page
 
-![Auth Page]()
+![Auth Page](/public/assets/Signup.png)
 
 ### Home Page
 
-![Home Page]()
+![Home Page](/public/assets/apicocktail.png)
 
 ### Drink List Page
 
-![Drink List Page]()
+![Drink List Page](/public/assets/drinkspage.png)
 
 ### Add New Drink Page
 
-![Add New Drink Page]()
+![Add New Drink Page](/public/assets/addform.png)
 
 ### TECNOLOGIES USED:
 ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)

@@ -15,16 +15,16 @@ export default function NavBar({ user, setUser }) {
         <Container py={{ base: '4', lg: '5' }}>
           <HStack spacing="10" justify="space-between">
             <Flex justify="space-between" flex="1">
-              <Link to="/">Home</Link>
+              <Link id="link" to="/">Home</Link>
               &nbsp; | &nbsp;
-              <Link to="/drinks">Drink List</Link>
+              <Link id="link" to="/drinks">Drink List</Link>
               &nbsp; | &nbsp;
-              <Link to="/drinks/new">Add New Drink</Link>
+              <Link id="link" to="/drinks/new">Add New Drink</Link>
               &nbsp;&nbsp; &nbsp;&nbsp;
               <Box ml={6}>
                 <span>Welcome, {user.name}!</span>
                 &nbsp;&nbsp; &nbsp;&nbsp;
-                <Link color={'purple'} to="" onClick={handleLogOut}>Log Out</Link>
+                <Link id="link" color={'purple'} to="" onClick={handleLogOut}>Log Out</Link>
               </Box>
             </Flex>
           </HStack>

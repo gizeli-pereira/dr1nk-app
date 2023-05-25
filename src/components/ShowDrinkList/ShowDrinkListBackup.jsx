@@ -51,7 +51,7 @@ export default function ShowDrinkList({ user, setDrinks, drink, drinkID, drinks,
                                     bgColor='purple.500'
                                     color='white'
                                     borderRadius={20}
-                                    onClick={() => handleDelete(drink._id)}>Delete this drink!
+                                    onClick={() => handleDelete(drink._id)}>Delete this drinks
                                 </Button>
                                 {/* <Link  to={`/drinks/${drinkID}`}>Edit here</Link>  */}
                                 {/* <Button onClick={() => setShowEdit(!showEdit)}  >Edit</Button>  */}

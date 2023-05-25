@@ -2,11 +2,6 @@ import { Box, Stack, Text, Card, CardHeader, CardBody, CardFooter, Image, Headin
 import { useState } from 'react';
 
 export default function ShowDrinkList({ user, setDrinks, drink, drinkID, drinks, userID, handleDelete }) {
-
-    // if (drink.user !== userID) {
-    //     // Skip rendering this drink if it doesn't belong to the user
-    //     return null;
-    // }
     
     return (
 
