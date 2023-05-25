@@ -8,7 +8,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
-  const cocktailUrl = `https://www.thecocktaildb.com/api/json/v2/9973533/random.php`;
+  const cocktailUrl = process.env.REACT_APP_COCKTAIL_KEY;
 
   const fetchCocktail = useCallback(() => {
     setLoading(true);

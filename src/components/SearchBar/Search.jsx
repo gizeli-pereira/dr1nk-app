@@ -8,7 +8,7 @@ export default function Search() {
 
   const searchOptions = {
     limit: 1,
-    api: `https://www.thecocktaildb.com/api/json/v2/9973533/`,
+    api: `https://www.thecocktaildb.com/api/json/v1/1/`, //change later when it's working with real api key
     endpoint: `/search.php`
   }
   const [data, setData] = useState([]);
