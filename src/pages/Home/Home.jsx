@@ -20,7 +20,7 @@ export default function Home() {
           console.log('error made')
         })
       .finally(() => setLoading(false))
-  }, [])
+  }, [fetchCocktail])
 
   useEffect(() => {
     fetchCocktail();
