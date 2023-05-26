@@ -15,12 +15,9 @@ export default function Home() {
     axios.get(cocktailUrl).then(res => {
       console.log(res.data)
       setData(res.data.drinks)
-    }).catch(
-        function (error) {
-          console.log('error made')
-        })
+    }).catch((e => console.log(e)))
       .finally(() => setLoading(false))
-  }, [fetchCocktail])
+  }, [])
 
   useEffect(() => {
     fetchCocktail();
