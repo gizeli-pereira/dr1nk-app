@@ -15,7 +15,10 @@ export default function Home() {
     axios.get(cocktailUrl).then(res => {
       console.log(res.data)
       setData(res.data.drinks)
-    }).catch(e => console.log(e))
+    }).catch(
+        function (error) {
+          console.log('error made')
+        })
       .finally(() => setLoading(false))
   }, [])
 
